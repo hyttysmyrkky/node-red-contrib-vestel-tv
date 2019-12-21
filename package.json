@@ -1,0 +1,23 @@
+{
+  "name": "node-red-contrib-vestel-tv",
+  "version": "0.0.1",
+  "description": "Node-RED nodes to control a Vestel TV (possibly sold as ProCaster, Toshiba, Hitachi, Sharp, JVC, Bush, Alba, Panasonic, Medion, Finlux etc.).",
+  "scripts": {
+    "test": "../node_modules/mocha/bin/mocha \"test/**/*_spec.js\""
+  },
+  "keywords": [
+    "node-red-testing",
+    "vestel",
+    "procaster",
+    "tv"
+  ],
+  "author": "Rednaelo Inot",
+  "license": "Apache-2.0",
+  "node-red" : {
+        "nodes": {
+            "vestel-config": "nodes/vestel-config.js",
+            "vestel-remote-control": "nodes/vestel-remote-control.js",
+            "remote-button": "nodes/remote-button.js"
+        }
+    }
+}

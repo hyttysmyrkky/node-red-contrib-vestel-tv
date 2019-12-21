@@ -1,0 +1,64 @@
+<script type="text/javascript">
+    RED.nodes.registerType('vestel-config',{
+        category: 'config',
+        defaults: {
+            name: {value:""},
+            tvIpAddress: {value:"",required:true},
+            selectedTvModel: {value:"MB130",required:true},
+            customPort: {value:""},
+            customPath: {value:""},
+        },
+        label: function() {
+            return "Saved config: "+this.name+" ("+this.selectedTvModel+")" || "vestel-config";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="vestel-config">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="icon-tag"></i> Configuration name</label>
+        <input type="text" id="node-config-input-name" placeholder="e.g. Living room / Vestel MB130">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-tvIpAddress"><i class="fa fa-globe"></i> IP address of the TV</label>
+        <input type="text" id="node-config-input-tvIpAddress" placeholder="e.g. 192.168.1.15">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-selectedTvModel"><i class="fa fa-television"></i> Vestel TV model</label>
+        <select id="node-config-input-selectedTvModel">
+            <option value="MB130">Default (MB130)</option>
+            <option value="MB130">MB130</option>
+            <option value="other">other (custom port and path below required!)</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-customPort"><i class="fa fa-wrench"></i> Custom TCP port for remote control</label>
+        <input type="text" id="node-config-input-customPort" placeholder="e.g. 56789 (leave empty for defaults)">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-customPath"><i class="fa fa-wrench"></i> Custom URL path for remote control</label>
+        <input type="text" id="node-config-input-customPath" placeholder="e.g. /apps/SmartCenter (leave empty for defaults)">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="vestel-config">
+    <p>A TV configuration that represents one TV (its address and model).</p>
+    
+    <h3>Configuration parameters</h3>
+    <dl class="message-properties">
+        <dt>IP address of the TV
+            <span class="property-type">string</span>
+        </dt>
+        <dd> This plugin does not use the discovery protocol, which means that you have to give the IP address of the TV manually. Also, you most likely have to set the address to be static (in DHCP in the router settings). </dd>
+        
+        <dt>Vestel TV model
+            <span class="property-type">string</span>
+        </dt>
+        <dd> Since these TVs are sold under many brands, the model number is quite ambiguous. One way to get a model number is from the title of the service menu (press remote buttons in the sequence of: HOME, 4,7,2,5). </dd>
+        
+        <dt>Custom port (and path)
+            <span class="property-type">string</span>
+        </dt>
+        <dd> If you find out that your TV model uses a different port (or path) for the virtual remote, you can override the defaults for any given model selected above. </dd>
+    </dl>
+</script>

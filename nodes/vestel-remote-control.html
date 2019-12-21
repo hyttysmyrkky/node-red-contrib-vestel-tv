@@ -1,0 +1,51 @@
+<script type="text/javascript">
+    RED.nodes.registerType('vestel-remote-control',{
+        category: 'TV remote control',
+        color: '#7284d6',
+        defaults: {
+            name: {value:""},
+            configurationNode: {
+                value:"", 
+                type:"vestel-config",
+                required: true
+            }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "feed.png",
+        label: function() {
+            return this.name||"vestel-remote-control";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="vestel-remote-control">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-configurationNode"><i class="fa fa-television"></i> Selected TV (configuration)</label>
+        <input type="text" id="node-input-configurationNode">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="vestel-remote-control">
+    <p>A node to remote control a Vestel TV (sold under Procaster, Toshiba, and many other brands).</p>
+    
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">string</span>
+        </dt>
+        <dd> Input can be a key code (e.g. 1013) or a button name (e.g. MUTE). You can use the Remote button node to choose a button from a list (and also see the supported button names).</dd>
+    </dl>
+    
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">string</span>
+        </dt>
+        <dd> Simply outputs the HTTP request payload (mostly for unit test purposes).</dd>
+    </dl>
+</script>

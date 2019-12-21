@@ -1,0 +1,125 @@
+<script type="text/javascript">
+    RED.nodes.registerType('remote-button',{
+        category: 'TV remote control',
+        color: '#9294e8',
+        defaults: {
+            name: {value:""},
+            button: {value:"MENU"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "hash.png",
+        label: function() {
+            return this.button||"remote-button";
+        },
+        oneditprepare: function () {
+            const keycode_map_vestel = {
+                0: 1000,
+                1: 1001,
+                2: 1002,
+                3: 1003,
+                4: 1004,
+                5: 1005,
+                6: 1006,
+                7: 1007,
+                8: 1008,
+                9: 1009,
+                AMBILIGHT: 1068,
+                APP: 1046,
+                APP2: 1070,
+                ASPECT_RATIO: 1011,
+                AUDIO: 1035,
+                BACK: 1010,
+                BLUE: 1052,
+                CHANNEL_DOWN: 1033,
+                CHANNEL_PREVIOUS: 1034,
+                CHANNEL_UP: 1032,
+                CHANNEL: 1045,
+                DOWN: 1019,
+                EPG: 1047,
+                EXIT: 1037,
+                FAVORITES: 1040,
+                FORWARD: 1028,
+                GREEN: 1054,
+                INFO: 1018,
+                INPUT_SOURCE: 1056,
+                LANGUAGE: 1015,
+                LEFT: 1021,
+                MEDIA_BROWSER: 1057,
+                MENU: 1048,
+                MULTI_VIEW: 1069,
+                MUTE: 1013,
+                MY_BUTTON_1: 1062,
+                MY_BUTTON_2: 1063,
+                NETFLIX: 1064,
+                OK: 1053,
+                ON_SCREEN_REMOTE: 1072,
+                ON_SCREEN_REMOTE2: 1073,
+                PAUSE: 1049,
+                PLAY: 1025,
+                POWER_ON_OFF: 1012,
+                PRESETS: 1014,
+                QUICK_MENU: 1043,
+                RECORD: 1051,
+                RECORDINGS: 1059,
+                RED: 1055,
+                REWIND: 1027,
+                RIGHT: 1022,
+                SETTINGS_SYSTEM: 1067,
+                SLEEP_TIMER: 1042,
+                STOP: 1024,
+                SUBTITLE: 1031,
+                TEXT: 1255,
+                TEXT2: 1060,
+                UP: 1020,
+                VOL_DOWN: 1017,
+                VOL_UP: 1016,
+                WEB_BROWSER: 1065,
+                YELLOW: 1050
+            }
+            
+            var dropDownOptions = $('#node-input-button');
+            $.each(keycode_map_vestel, function(button, keycode) {
+                dropDownOptions.append(
+                    $('<option></option>').val(button).html(button)
+                );
+            });
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="remote-button">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-button"><i class="fa fa-sort-numeric-asc"></i> Remote control button</label>
+        <select id="node-input-button">
+            
+        </select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="remote-button">
+    <p>A node that represents one button on the remote control.</p>
+    
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">string</span>
+        </dt>
+        <dd> (anything) </dd>
+    </dl>
+    
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">string</span>
+        </dt>
+        <dd> The "standard" name of the key, e.g. <code>MUTE</code>. </dd>
+    </dl>
+    
+    <h3>Details</h3>
+    <p>When anything is inputted to this node, the output is the "standard" name of the key, e.g. MUTE which can be inputted to the remote control node.</p>
+</script>
