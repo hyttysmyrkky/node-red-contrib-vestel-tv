@@ -54,7 +54,7 @@ If you have Docker and you would like to test this plugin without installing Nod
 Apache-2.0 (c) Rednaelo Inot
 
 
-## Acknowledgments
+## Acknowledgements
 
 * [The official virtual remote app for Android](https://play.google.com/store/apps/details?id=com.VestelTvRemote)
 
