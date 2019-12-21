@@ -57,6 +57,7 @@ Apache-2.0 (c) Rednaelo Inot
 ## Acknowledgments
 
 * [The official virtual remote app for Android](https://play.google.com/store/apps/details?id=com.VestelTvRemote)
+
 Useful links (and thanks for the useful information!):
 * https://github.com/T3m3z/pyvesteltv/
 * https://shkspr.mobi/blog/2018/11/telnet-control-of-toshiba-smart-tvs/
