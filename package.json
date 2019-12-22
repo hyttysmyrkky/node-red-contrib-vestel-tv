@@ -6,7 +6,7 @@
     "test": "../node_modules/mocha/bin/mocha \"test/**/*_spec.js\""
   },
   "keywords": [
-    "node-red-testing",
+    "node-red",
     "vestel",
     "procaster",
     "tv"
@@ -19,5 +19,8 @@
             "vestel-remote-control": "nodes/vestel-remote-control.js",
             "remote-button": "nodes/remote-button.js"
         }
-    }
+    },
+  "files": [
+    "/nodes"
+  ]
 }
