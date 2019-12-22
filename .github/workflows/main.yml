@@ -1,0 +1,17 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: test_all
+      run: |
+        echo "Running test_all.sh ...."
+        cd test
+        ./test_all.sh
+        
