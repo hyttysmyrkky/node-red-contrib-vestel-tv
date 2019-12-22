@@ -46,8 +46,6 @@ See links in the Acknowledgments for more related information.
 ### Running the tests
 Running the tests requires Docker. Run the script `test_all.sh` in the test directory.
 
-(Note: Currently the tests are a bit flaky because the `helper.getNode` is returning nulls for x period of time.)
-
 If you have Docker and you would like to test this plugin without installing Node-RED, you can run (in the test directory) the scripts `./build_test_image.sh` and then `./run_node-red_with_vestel-tv.sh`. Then open in browser http://localhost:1890. (Or if you want to access Node-RED outside localhost, run `./run_node-red_with_vestel-tv.sh --not-only-for-localhost`)
 
 ## License

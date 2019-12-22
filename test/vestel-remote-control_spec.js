@@ -52,10 +52,10 @@ describe('vestel-remote-control Node', function () {
     
     helper.load([vestelconfigNode ,vestelremotecontrolNode], flow, function () {
       
-      testHelperNode = null;
+      var testHelperNode = helper.getNode("__test_helper_node__");
       i = 0;
       while (testHelperNode == null) {
-          var testHelperNode = helper.getNode("__test_helper_node__");
+          testHelperNode = helper.getNode("__test_helper_node__");
           console.log("#"+ ++i +" null   t(-_-t)   helper.getNode is returning nulls for some reason");
           if (i>10000) {
             return
