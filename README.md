@@ -16,6 +16,8 @@ Currently supported (i.e. tested) models:
 
 The virtual remote control feature must be enabled in the TV settings.
 
+For the instructions how to install this node (plugin), please refer to [the Node-RED docs](https://nodered.org/docs/user-guide/runtime/adding-nodes).
+
 This plugin does not use the discovery protocol, which means that you have to give the IP address of the TV manually to the `vestel remote control` node settings. Also, you most likely want to set the address to be static (in DHCP in the router settings).
 
 The TV must be turned on. Usually, when the TV has been turned off with the normal IR remote control, the TV goes to a deep sleep state where it does not listen to virtual remotes anymore. However, when powering off the TV by using a virtual remote, the TV may enter a light standby state where it is listening to a virtual remote power on command (while also consuming more energy!).
