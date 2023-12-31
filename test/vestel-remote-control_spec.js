@@ -23,7 +23,7 @@ describe('vestel-remote-control Node', function () {
   it('should make correct HTTP requests', function (done) {
     //this.timeout(15000);
     //setTimeout(done, 15000);
-    
+
     var flow = [
         {
             "id": "testednode",
@@ -49,9 +49,9 @@ describe('vestel-remote-control Node', function () {
         },
         { id: "__test_helper_node__", type: "helper" }
     ];
-    
+
     helper.load([vestelconfigNode ,vestelremotecontrolNode], flow, function () {
-      
+
       var testHelperNode = helper.getNode("__test_helper_node__");
       i = 0;
       while (testHelperNode == null) {
@@ -61,14 +61,14 @@ describe('vestel-remote-control Node', function () {
             return
           }
       }
-      
+
       var testedNode = helper.getNode("testednode");
-      
+
       testHelperNode.on("input", function (msg) {
         msg.should.have.property('payload', "<?xml version='1.0' ?><remote><key code='1010'/></remote>");
         done();
       });
-      
+
       testedNode.receive({ payload: "BACK" });
     });
   });

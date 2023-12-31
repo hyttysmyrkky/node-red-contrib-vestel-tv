@@ -34,21 +34,21 @@ describe('remote-button Node', function () {
         },
         { id: "__test_helper_node__", type: "helper" }
     ];
-    
+
     helper.load(remotebuttonNode, flow, function () {
       var buttonNode = helper.getNode("n1");
       var testHelperNode = helper.getNode("__test_helper_node__");
-      
+
       testHelperNode.on("input", function (msg) {
         msg.should.have.property('payload', 'SETTINGS_SYSTEM');
         done();
       });
-      
+
       buttonNode.receive({ payload: "something" });
     });
   });
-  
-  
+
+
   it('should output a MUTE button command', function (done) {
 
     var flow = [
@@ -66,16 +66,16 @@ describe('remote-button Node', function () {
         },
         { id: "__test_helper_node__", type: "helper" }
     ];
-    
+
     helper.load(remotebuttonNode, flow, function () {
       var buttonNode = helper.getNode("n1");
       var testHelperNode = helper.getNode("__test_helper_node__");
-      
+
       testHelperNode.on("input", function (msg) {
         msg.should.have.property('payload', 'MUTE');
         done();
       });
-      
+
       buttonNode.receive({ payload: "something" });
     });
   });
