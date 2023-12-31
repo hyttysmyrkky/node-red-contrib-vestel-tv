@@ -16,6 +16,12 @@ module.exports = function(RED) {
                 "path": "/apps/SmartCenter",
                 "port": 56789
                 },
+            // JVC LT-40C890
+            "": {
+                "keys": keyMaps.keycode_map_vestel,
+                "path": "/apps/SmartCenter",
+                "port": 56789
+                },
             "other": {
                 "keys": keyMaps.keycode_map_vestel,
                 "path": "/unknown/path",

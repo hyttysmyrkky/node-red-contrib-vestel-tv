@@ -8,6 +8,7 @@
 
 Currently supported (i.e. tested) models:
 * MB130 (ProCaster 65UNB815H)
+* (JVC LT-40C890)
 * ... (may work well with other similar models too)
 > Since these TVs are sold under many brands, the model number is quite ambiguous. One way to get a model number is from the title of the service menu (press remote buttons in the following sequence: HOME,4,7,2,5).
 
