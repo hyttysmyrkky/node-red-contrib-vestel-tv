@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Node-RED nodes to control a Vestel TV (possibly sold as ProCaster, Toshiba, Hitachi, Sharp, JVC, Bush, Alba, Panasonic, Medion, Finlux etc.).",
   "scripts": {
-    "test": "../node_modules/mocha/bin/mocha \"test/**/*_spec.js\""
+    "test": "mocha \"test/**/*_spec.js\""
   },
   "keywords": [
     "node-red",
