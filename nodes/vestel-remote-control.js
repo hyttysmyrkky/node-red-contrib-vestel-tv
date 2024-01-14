@@ -1,13 +1,13 @@
 module.exports = function(RED) {
-    
+
     const http = require('http'); // used for sending the commands to the tv
-    
+
     function VestelControlNode(config) {
         RED.nodes.createNode(this,config);
-        
+
         // Get the config node
         this.configurationNode = RED.nodes.getNode(config.configurationNode);
-        
+
         let node = this;
         this.on('input', function(msg, send, done) {
             let TV = this.configurationNode;
@@ -30,15 +30,15 @@ module.exports = function(RED) {
                     errorMessage = "Remote command not supported: " + requestedButton;
                 }
             }
-            
+
             // Send the HTTP request:
             if (!errorMessage) {
                 node.debug("Sending command: " + keyCodeToBeSent);
-            
+
                 // Node.js http.request:
                 // https://nodejs.org/api/http.html#http_http_request_url_options_callback
                 const postData = "<?xml version='1.0' ?><remote><key code='" +keyCodeToBeSent+ "'/></remote>"
-                
+
                 const options = {
                     hostname: TV.getIpAddress,
                     port: TV.getTcpPort,
@@ -50,19 +50,19 @@ module.exports = function(RED) {
                     'Connection': 'Keep-Alive'
                     }
                 };
-        
-                const req = http.request(options);                
-                
+
+                const req = http.request(options);
+
                 req.on('error', (e) => {
                     errorMessage = `Is the TV listening? (${e.message})`;
                     this.warn(errorMessage);
                     this.status({fill:"red",shape:"ring",text: errorMessage});
                 });
-                
+
                 // Write data to request body
                 req.write(postData);
                 req.end();
-                
+
                 // For maximum backwards compatibility, check that send exists.
                 // If this node is installed in Node-RED 0.x, it will need to
                 // fallback to using `node.send`
@@ -71,7 +71,7 @@ module.exports = function(RED) {
                 msg.payload = postData;
                 send(msg);
             }
-            
+
             // If an error is hit, report it to the runtime
             if (errorMessage) {
                 this.status({fill:"red",shape:"ring",text: errorMessage});
